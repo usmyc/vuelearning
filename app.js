@@ -6,6 +6,8 @@ createApp({
       message: "Hello AI!",
       weather: "sunny",
       age: 20,
+      x: 0,
+      y: 0,
     };
   },
   methods: {
@@ -13,8 +15,16 @@ createApp({
       this.age++;
     },
     minusAge() {
-        this.age--;
-        }
+      this.age--;
+    },
+    handleEvent(e) {
+      console.log(e);
+    },
+    handleMousemove(e) {
+      this.x = e.screenX;
+      this.y = e.screenY;
+    }
+   
   },
 }).mount("#app");
 

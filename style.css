@@ -21,3 +21,30 @@
   max-width: 600px;
   padding: 10px;
 }
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.box {
+  padding: 100px 0;
+  box-shadow: 2px 2px 6px rgb(163, 150, 150);
+  text-align: center;
+  background: #ddd;
+  margin: 10px;
+  display: inline-block;
+}
+
+button {
+  background-color: #f94c7d;
+  border-radius: 100px;
+  box-shadow: 2px 2px 6px rgb(163, 150, 150);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
