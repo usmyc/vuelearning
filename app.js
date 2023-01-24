@@ -1,32 +1,41 @@
 import { createApp } from "vue";
+var title = "Hello World";
 
-createApp({
-  data() {
-    return {
-      message: "Hello AI!",
-      weather: "sunny",
-      age: 20,
-      x: 0,
-      y: 0,
-    };
-  },
-  methods: {
-    plusAge() {
-      this.age++;
+async function getData() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+  const object = await response.json();
+  title = object.title;
+}
+getData().then(() => {
+  createApp({
+    data() {
+      console.log(title);
+      return {
+        message: "Hello AI!",
+        weather: "sunny",
+        age: 20,
+        x: 0,
+        y: 0,
+        title: title,
+      };
     },
-    minusAge() {
-      this.age--;
+    methods: {
+      plusAge() {
+        this.age++;
+      },
+      minusAge() {
+        this.age--;
+      },
+      handleEvent(e) {
+        console.log(e);
+      },
+      handleMousemove(e) {
+        this.x = e.screenX;
+        this.y = e.screenY;
+      },
     },
-    handleEvent(e) {
-      console.log(e);
-    },
-    handleMousemove(e) {
-      this.x = e.screenX;
-      this.y = e.screenY;
-    }
-   
-  },
-}).mount("#app");
+  }).mount("#app");
+});
 
 createApp({
   template: `
