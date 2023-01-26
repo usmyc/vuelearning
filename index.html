@@ -17,14 +17,43 @@
     </script>
 
     <div id="app">
-      <div v-if="age>30">
+      <div v-if="age>=30">
         <h1>{{ message }}</h1>
         <p>{{ weather }}</p>
       </div>
+
+      <a :href="url"> hello </a>
       <button @click="plusAge">Plus Age</button>
       <button @click="minusAge">Minus Age</button>
       <p>{{age}}</p>
-      <p>{{title}}</p>
+      <ul v-if="age>=40">
+        <li v-for="item in title">
+          <p>{{item.title}}</p>
+        </li>
+      </ul>
+      <div v-if="age<30">
+        <ul>
+          <li
+            v-for="book in books"
+            :class="{logic: book.isFav}"
+            @click="isFavhandler(book)"
+          >
+            <h3>{{book.title}}</h3>
+            <p>{{book.author}}</p>
+          </li>
+        </ul>
+        <ul>
+          <li
+            v-for="book in filteredBooks"
+            :class="{logic: book.isFav}"
+            @click="isFavhandler(book)"
+          >
+            <h3>{{book.title}}</h3>
+            <p>{{book.author}}</p>
+          </li>
+        </ul>
+        <div v-for="b"></div>
+      </div>
       <div class="container">
         <div class="box" @mouseover="handleEvent">mouseover</div>
         <div class="box" @mouseleave="handleEvent">mouseleave</div>
